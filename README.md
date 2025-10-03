@@ -26,13 +26,18 @@ if the player misses the ball he gets penalty points of -2
 ```mermaid
 stateDiagram-v2
     [*] --> IDLE : reset
-    IDLE --> TORIGHT: push3=0
+    IDLE --> TORIGHT: push3=1
+    IDLE --> IDLE: push3=0 or push1=0
     IDLE --> TOLEFT : push0=1
-    TORIGHT --> TOLEFT : push3=0
+
+    TORIGHT --> TOLEFT : push3=1
     TOLEFT --> TORIGHT : push0=1
+    TORIGHT --> TORIGHT : push3=0
+    TOLEFT --> TOLEFT : push0=0
     TOLEFT --> SCORE : score3>=40?
     TORIGHT --> SCORE : score0>=40?
 ```
+
 ### Custom functions
 I have written custom functions to keep for the score tracking and dispaying the score when the game goes into the state 'SCORE'
 
