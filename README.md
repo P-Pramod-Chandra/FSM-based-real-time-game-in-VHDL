@@ -32,8 +32,8 @@ stateDiagram-v2
 
     TORIGHT --> TOLEFT : push3=1
     TOLEFT --> TORIGHT : push0=1
-    TORIGHT --> TORIGHT : push3=0
-    TOLEFT --> TOLEFT : push0=0
+    TORIGHT --> TORIGHT : score3<=40
+    TOLEFT --> TOLEFT: score0<=40
     TOLEFT --> SCORE : score3>=40?
     TORIGHT --> SCORE : score0>=40?
 ```
